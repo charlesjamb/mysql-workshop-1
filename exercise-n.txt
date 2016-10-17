@@ -10,3 +10,6 @@ CREATE DATABASE decodemtl_test;
 
 CREATE DATABASE decodemtl_addressbook;
 // // Query OK, 1 row affected (0,00 sec)
+
+DROP DATABASE decodemtl_test;
+// Query OK, 0 rows affected (0,01 sec)
