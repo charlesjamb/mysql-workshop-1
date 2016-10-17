@@ -1,0 +1,12 @@
+mysql-ctl start
+// command not found so I used:
+sudo service mysql start
+
+/usr/bin/mysql -u root -p
+// used to connect to mysql
+
+CREATE DATABASE decodemtl_test;
+// Query OK, 1 row affected (0,00 sec)
+
+CREATE DATABASE decodemtl_addressbook;
+// // Query OK, 1 row affected (0,00 sec)
