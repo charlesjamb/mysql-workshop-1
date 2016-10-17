@@ -66,6 +66,8 @@ mysql> SHOW TABLES;
 +---------------------------------+
 3 rows in set (0,00 sec)
 
+// Exercise 8 //
+
 mysql> CREATE TABLE Account 
     -> (id auto_increment primary key,
     -> email varchar(255),
@@ -142,3 +144,71 @@ mysql> ALTER TABLE Entry
     -> ADD subtype ENUM('phone', 'address', 'email');
 Query OK, 0 rows affected (0,10 sec)
 Records: 0  Duplicates: 0  Warnings: 0
+
+// Exercise 9 //
+
+mysql> CREATE TABLE Hatching_chick (id INT AUTO_INCREMENT, PRIMARY KEY (id));
+Query OK, 0 rows affected (0,07 sec)
+
+mysql> ALTER TABLE Hatching_chick
+    -> ADD type ENUM('rooster', 'hen', 'chick'),
+    -> ADD dateOfBirth DATETIME;
+Query OK, 0 rows affected (0,10 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESCRIBE Hatching_chick
+    -> ;
++-------------+-------------------------------+------+-----+---------+----------------+
+| Field       | Type                          | Null | Key | Default | Extra          |
++-------------+-------------------------------+------+-----+---------+----------------+
+| id          | int(11)                       | NO   | PRI | NULL    | auto_increment |
+| type        | enum('rooster','hen','chick') | YES  |     | NULL    |                |
+| dateOfBirth | datetime                      | YES  |     | NULL    |                |
++-------------+-------------------------------+------+-----+---------+----------------+
+3 rows in set (0,00 sec)
+
+// Exercise 10 //
+
+mysql> CREATE TABLE Hotel (id INT AUTO_INCREMENT, PRIMARY KEY (id));
+Query OK, 0 rows affected (0,07 sec)
+
+mysql> ALTER TABLE Hotel
+    -> ADD rooms INT,
+    -> ADD floor INT;
+Query OK, 0 rows affected (0,11 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE Hotel
+    -> ADD occupied ENUM('yes', 'no'),
+    -> ADD entryDate DATETIME,
+    -> ADD exitDate DATETIME,
+    -> ADD occupants INT;
+Query OK, 0 rows affected (0,14 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE Hotel
+    -> ADD rentable ENUM('yes', 'no'),
+    -> ADD privateKitchen ENUM('yes', 'no'),
+    -> ADD numberWindows INT,
+    -> ADD carpetOnFloor ENUM('yes', 'no');
+Query OK, 0 rows affected (0,13 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESCRIBE Hotel
+    -> ;
++----------------+------------------+------+-----+---------+----------------+
+| Field          | Type             | Null | Key | Default | Extra          |
++----------------+------------------+------+-----+---------+----------------+
+| id             | int(11)          | NO   | PRI | NULL    | auto_increment |
+| rooms          | int(11)          | YES  |     | NULL    |                |
+| floor          | int(11)          | YES  |     | NULL    |                |
+| occupied       | enum('yes','no') | YES  |     | NULL    |                |
+| entryDate      | datetime         | YES  |     | NULL    |                |
+| exitDate       | datetime         | YES  |     | NULL    |                |
+| occupants      | int(11)          | YES  |     | NULL    |                |
+| rentable       | enum('yes','no') | YES  |     | NULL    |                |
+| privateKitchen | enum('yes','no') | YES  |     | NULL    |                |
+| numberWindows  | int(11)          | YES  |     | NULL    |                |
+| carpetOnFloor  | enum('yes','no') | YES  |     | NULL    |                |
++----------------+------------------+------+-----+---------+----------------+
+11 rows in set (0,00 sec)
