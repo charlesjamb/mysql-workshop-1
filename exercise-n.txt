@@ -1,15 +1,67 @@
-mysql-ctl start
-// command not found so I used:
-sudo service mysql start
+mysql> mysql-ctl start
+	command not found so I used:
+mysql> sudo service mysql start
 
-/usr/bin/mysql -u root -p
-// used to connect to mysql
+/umysql> sr/bin/mysql -u root -p
+	used to connect to mysql
 
-CREATE DATABASE decodemtl_test;
-// Query OK, 1 row affected (0,00 sec)
+mysql> CREATE DATABASE decodemtl_test;
+	Query OK, 1 row affected (0,00 sec)
 
-CREATE DATABASE decodemtl_addressbook;
-// // Query OK, 1 row affected (0,00 sec)
+mysql> CREATE DATABASE decodemtl_addressbook;
+	Query OK, 1 row affected (0,00 sec)
 
-DROP DATABASE decodemtl_test;
-// Query OK, 0 rows affected (0,01 sec)
+mysql> DROP DATABASE decodemtl_test;
+	Query OK, 0 rows affected (0,01 sec)
+
+mysql> SHOW DATABASES;
++-----------------------+
+| Database              |
++-----------------------+
+| information_schema    |
+| decodemtl_addressbook |
+| mysql                 |
+| performance_schema    |
+| sys                   |
++-----------------------+
+5 rows in set (0,00 sec)
+
+mysql> USE decodemtl_addressbook
+	Database changed
+mysql> SHOW TABLES;
+	Empty set (0,00 sec)
+
+mysql> CREATE TABLE Account;
+	ERROR 1113 (42000): A table must have at least 1 column
+mysql> CREATE TABLE Account (personid text);
+	Query OK, 0 rows affected (0,09 sec)
+mysql> CREATE TABLE AddressBook (column1 varchar(40));
+	Query OK, 0 rows affected (0,06 sec)
+mysql> CREATE TABLE Entry (acolumn date);
+	Query OK, 0 rows affected (0,06 sec)
+mysql> CREATE TABLE Test (random char(5));
+	Query OK, 0 rows affected (0,07 sec)
+
+mysql> SHOW TABLES;
++---------------------------------+
+| Tables_in_decodemtl_addressbook |
++---------------------------------+
+| Account                         |
+| AddressBook                     |
+| Entry                           |
+| Test                            |
++---------------------------------+
+4 rows in set (0,00 sec)
+
+mysql> DROP TABLE Test;
+	Query OK, 0 rows affected (0,05 sec)
+
+mysql> SHOW TABLES;
++---------------------------------+
+| Tables_in_decodemtl_addressbook |
++---------------------------------+
+| Account                         |
+| AddressBook                     |
+| Entry                           |
++---------------------------------+
+3 rows in set (0,00 sec)
