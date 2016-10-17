@@ -106,4 +106,39 @@ mysql> ALTER TABLE Account
 Query OK, 0 rows affected (0,12 sec)
 Records: 0  Duplicates: 0  Warnings: 0
 
+mysql> CREATE TABLE AddressBook (id INT AUTO_INCREMENT, PRIMARY KEY (id));
+Query OK, 0 rows affected (0,06 sec)
 
+mysql> ALTER TABLE AddressBook
+    -> ADD name VARCHAR(255),
+    -> ADD createdOn DATETIME,
+    -> ADD modifiedOn DATETIME;
+Query OK, 0 rows affected (0,10 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE AddressBook
+    -> ADD AccountId INT;
+Query OK, 0 rows affected (0,12 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> CREATE TABLE Entry (id INT AUTO_INCREMENT, PRIMARY KEY (id));
+Query OK, 0 rows affected (0,09 sec)
+
+mysql> ALTER TABLE Entry
+    -> ADD addressBookId INT,
+    -> ADD firstName VARCHAR(255),
+    -> ADD lastName VARCHAR(255),
+    -> ADD birthday DATETIME,
+    -> ADD contentLineOne VARCHAR(255),
+    -> ADD contentLineTwo VARCHAR(255),
+    -> ADD contentLineThree VARCHAR(255),
+    -> ADD contentLineFour VARCHAR(255),
+    -> ADD contentLineFive VARCHAR(255);
+Query OK, 0 rows affected (0,11 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE Entry
+    -> ADD type ENUM('home', 'work', 'other'),
+    -> ADD subtype ENUM('phone', 'address', 'email');
+Query OK, 0 rows affected (0,10 sec)
+Records: 0  Duplicates: 0  Warnings: 0
